@@ -33,7 +33,6 @@ function filterProducts(){
 
     for (let i = 0; i < item.length; i++){
         let span = item[i].querySelector('.title');
-
         if(span.innerHTML.toUpperCase().indexOf(filterValue) > -1){
             item[i].style.display = "initial";
         }else{
