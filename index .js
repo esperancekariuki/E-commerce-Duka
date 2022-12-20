@@ -1,69 +1,28 @@
-let grid = document.querySelector(".products");
-let filterInput = document.getElementById("filterInput");
-let login = document.querySelector("button")
+document.querySelector('button').addEventListener('click', getFruit);
 
-// add event listener
-login.addEventListener('submit', refresh)
+function getFruit() {
 
-function refresh(){
-    window.location.reload();
-    
-}
-
-fetch('https://fakestoreapi.com/products')
-    .then(res => res.json())
-    .then(json =>{
-
-        // iterating products
-        for (let value of json){
-            addElement(grid, value)
-        }
-        
-    });
-
-
-// add event listener
-filterInput.addEventListener('keyup', filterProducts);
-
-// callback function 
-function filterProducts(){
-    let filterValue = filterInput.value.toUpperCase();
-    let item = grid.querySelectorAll('.item')
-    // console.log(filterValue);
-
-    for (let i = 0; i < item.length; i++){
-        let span = item[i].querySelector('.title');
-        if(span.innerHTML.toUpperCase().indexOf(filterValue) > -1){
-            item[i].style.display = "initial";
-        }else{
-            item[i].style.display = "none";
-        }
-
-    }
+    //get the value from the dom
+    //define the api address and the value
+    const factCount = document.getElementById('fact').value
+    const url =  `https://meowfacts.herokuapp.com/?count=${factCount}`
+    //fetch the data from the ap
+    //then plug in the data by creating new 'p' elements for each return value and then append the element to the dom
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            
+            for (const fact of data.data) {
+                const p = document.createElement('p');
+                        p.innerText = fact;
+                        document.body.appendChild(p);
+            }
+            console.log(data.data);
+        })
+        .catch(error => {
+            console.error(error);
+        });
 }
 
 
 
-// get value from the api create dynamic element
-function addElement(appendIn, value){
-    let div = document.createElement('div');
-    div.className = "item";
-
-    let { image, title, category, price } = value;
-
-    div.innerHTML = `
-            <img src="${image}" class="bg-cover img mx-auto" alt="img1">
-            <div class="text-center py-3 font-poppins">
-                <h1 class="text-lg title">${title}</h1>
-                <a href="#" class="block"><span class="text-sm text-red-400">${category}</span></a>
-                <span class="block py-3">$<span class="text-md">${price}</span></span>
-                <button class="button-49" role="button">Buy</button>
-            </div>
-    `;
-    appendIn.appendChild(div);
-}
-
-document.querySelector("#button").click(function() {  
-    document.querySelector("#box form").toggle("slow");
-    return false;
-  });

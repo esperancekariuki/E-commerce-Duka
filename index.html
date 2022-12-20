@@ -4,54 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filter</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Facts on cats</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- navbar -->
-    <div class="topnav">
-      <a class="active" href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <div class="login-container">
-        <form action="">
-            <input type="text" placeholder="Username" name="username">
-            <input type="text" placeholder="Password" name="psw">
-            <button type="submit">Login</button>
-          </form>
+    <div class="catFacts">
+        <header>
+            <h1>Get your random cat facts</h1>
+            <span>Information for this has been retreived from <a href="https://github.com/wh-iterabb-it/meowfacts">meowfacts.herokuapp.com</a></span>
+        </header>
+        
+        <div>
+            <h3>Kindly enter the number of cat facts you would like to retreive today</h3>
+            <div id="fact_info" >
+                <label for="factInfo">Input number of facts you would like to retreive: </label>
+                <input id="fact" name="fact" type="number" placeholder="the number of facts">
+                <br>
+                <button type="button" id="getFact">get fruit information</button>
+            </div>
+
         </div>
-      </div>
-  
-  
-      <div class="container mx-auto">
-          <h1 class="font-poppins text-center text-3xl font-bold pt-24">E-commerce Duka</h1>
-  
-          
-      </div>
-  
-      
-  
-      <!-- form -->
-      <form class="text-center py-4">
-          <input type="text" class="placeholder-gray-800 focus:outline-none bg-gray-200 text-gray-800 w-2/4 py-2 px-3 font-poppins rounded-md" id="filterInput" placeholder="Search">        
-      </form>
-  
-      <!-- product grid -->
-      <div class="products grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-12 gap-20">
-          <!-- <div class="item justify-self-center">
-              <img src="./assets/img3.png" class="bg-cover img" alt="img1">
-              <div class="text-center py-3 font-poppins">
-                  <h1 class="text-lg title">Product Title</h1>
-                  <a href="#" class="block"><span class="text-sm text-red-400">Category</span></a>
-                  <span class="block py-3">$<span class="text-md">12.99</span></span>
-                  <button class="border-2 px-8 py-1 bg-yellow-400 border rounded-md">Buy Now</button>
-              </div>
-          </div> -->
-      </div>
-  
-      <script src="./index.js"></script>
-      <!-- <script src="./Advanced.js"></script> -->
-  </body>
-  </html>
+
+        <div class="results">
+            <p></p>
+            <br>
+        </div>
+    </div>
+
+
+
+    <script src="index.js"></script>
+</body>
+</html>
