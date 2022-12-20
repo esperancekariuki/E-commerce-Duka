@@ -1,6 +1,6 @@
 # E-commerce-Duka
 <h1>E-commerce Duka</h1>
- E-commerce duka is an application that displays Cat information to be viewed by a user. It's main functionality is to filter the number of  searches leaving only relevant Cat information that match the request.
+ E-commerce duka is an application that displays Cat information to be viewed by a user. It's main functionality is to filter the number of  searches leaving only relevant Cat inforrmation that match the request.
 
 
  REQUIREMENTS
@@ -13,7 +13,9 @@ Vue 2.6.11
 Then install the various packages from package.json npm install
 Create environment variables
 
-Use this api to source products https://fakestoreapi.com/products
+Use this api to source products https://meowfacts.herokuapp.com
+THE LINK IS:
+
 
 Author:
 Kariuki Esperance - Initial work - Esperance
